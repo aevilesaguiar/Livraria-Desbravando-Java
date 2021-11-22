@@ -2,13 +2,31 @@ package livraria;
 
 public class Livro{
 
-	String nome;
-	String descricao;
-	double valor;
-	String isbn;
-	Autor autor;
+	private String nome;
+	private	String descricao;
+	private double valor;
+	private String isbn;
+	private Autor autor;
+	private boolean impresso;
+	
+	//construtor que deve receber um Autor como parametro
+	
+	public Livro(Autor autor) {
+		this.autor=autor;
+		this.isbn="000-00-00000-00-0";
+		this.impresso=true;
+	}
+	
+	
+
+	public Livro() {
+	
+
+	}
 
 	
+
+
 	void mostrarDetalhes() {
 
 		String mensagem ="Mostrando detalhes do Livro";
@@ -19,7 +37,6 @@ public class Livro{
 		System.out.println("ISBN:"+isbn);
 		autor.mostrarDetalhes();
 		System.out.println("--");
-		
 		if(this.temAutor()) {
 			autor.mostrarDetalhes();
 		}
@@ -28,16 +45,104 @@ public class Livro{
 		
 		
 	}
+
 	
-	public void  aplicaDescontoDe(Double porcentagem) {
-		this.valor -=this.valor*porcentagem;
+	boolean temAutor() {
+		return this.autor!=null;
 	}
 	
 	
 	
-	 boolean temAutor() {
-	
-		 boolean naoEhNull=this.autor !=null;
-		 return naoEhNull;
+	public boolean  aplicaDescontoDe(double porcentagem) {
+		
+		if(porcentagem>0.3) {
+			return false;
+		
+		}
+		double desconto = this.getValor()*porcentagem;
+		
+		this.setValor(this.getValor()-desconto);
+		return true;
 	}
+
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
+
+
+	public double getValor() {
+		return valor;
+	}
+
+
+
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+
+
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+
+
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+
+
+
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+
+
+
+
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
+
+
+
+
+	
+	
+
+
+	
+
 }
