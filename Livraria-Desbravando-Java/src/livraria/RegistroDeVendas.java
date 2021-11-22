@@ -15,6 +15,8 @@ public class RegistroDeVendas {
 		ebook.setNome("Test-Driven Development");
 		
 		
+		
+		
 
 	}
 
