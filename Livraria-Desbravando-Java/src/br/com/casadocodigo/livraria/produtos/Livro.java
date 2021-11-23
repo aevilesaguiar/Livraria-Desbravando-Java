@@ -1,6 +1,9 @@
-package livraria;
+package br.com.casadocodigo.livraria.produtos;
 
-public class Livro{
+import br.com.casadocodigo.livraria.Autor;
+import br.com.casadocodigo.livraria.exception.AutorNuloException;
+
+public abstract class Livro implements Produto{
 
 	private String nome;
 	private	String descricao;
@@ -12,6 +15,11 @@ public class Livro{
 	//construtor que deve receber um Autor como parametro
 	
 	public Livro(Autor autor) {
+		
+		
+		if(autor==null) {
+			throw new AutorNuloException("O autor do livro não pode ser nulo!");
+		}
 		this.autor=autor;
 		this.isbn="000-00-00000-00-0";
 		this.impresso=true;
@@ -27,24 +35,30 @@ public class Livro{
 	
 
 
-	void mostrarDetalhes() {
+	
+	@Override
+	public String toString() {
+	
+	System.out.println("Nome:"+nome);
+	System.out.println("Descrição:"+descricao);
+	System.out.println("Valor:"+valor);
+	System.out.println("ISBN:"+isbn);
 
-		String mensagem ="Mostrando detalhes do Livro";
-		System.out.println(mensagem);
-		System.out.println("Nome do livro:"+nome);
-		System.out.println("Descrição:"+descricao);
-		System.out.println("Valor do livro:"+valor);
-		System.out.println("ISBN:"+isbn);
-		autor.mostrarDetalhes();
-		System.out.println("--");
-		if(this.temAutor()) {
-			autor.mostrarDetalhes();
-		}
-		
-		System.out.println("--");
-		
-		
+	
+	
+	if(this.temAutor()) {
+		autor.toString();
 	}
+	
+	System.out.println("--");
+	
+
+	}
+}
+
+
+
+	
 
 	
 	boolean temAutor() {
@@ -52,21 +66,6 @@ public class Livro{
 	}
 	
 	
-	
-	public boolean  aplicaDescontoDe(double porcentagem) {
-		
-		if(porcentagem>0.3) {
-			return false;
-		
-		}
-		double desconto = this.getValor()*porcentagem;
-		
-		this.setValor(this.getValor()-desconto);
-		return true;
-	}
-
-
-
 	public String getNome() {
 		return nome;
 	}
@@ -135,6 +134,9 @@ public class Livro{
 	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
+
+
+
 
 
 

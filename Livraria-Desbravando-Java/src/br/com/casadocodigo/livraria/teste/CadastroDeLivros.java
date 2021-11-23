@@ -1,4 +1,8 @@
-package livraria;
+package br.com.casadocodigo.livraria.teste;
+
+import br.com.casadocodigo.livraria.Autor;
+import br.com.casadocodigo.livraria.produtos.Livro;
+import br.com.casadocodigo.livraria.produtos.LivroFisico;
 
 public class CadastroDeLivros {
 
@@ -9,12 +13,12 @@ public class CadastroDeLivros {
 		autor.setEmail("santos@santos.com");
 		autor.setCpf("123.456.789-10");
 		
-		Livro livro = new Livro(autor);
+		Livro livro = new LivroFisico(autor);
 		livro.setNome("Era Uma Vez");
 		
 		livro.setDescricao("Novos recursos Brasil");
 		livro.setValor(59.90);
-		livro.setIsbn(" ");
+		livro.setIsbn("978-85-66250-46-6");
 		
 		livro.setAutor(autor);
 		
@@ -27,7 +31,7 @@ public class CadastroDeLivros {
 		outroAutor.setCpf("1258.963.741-89");
 		
 		
-		Livro outroLivro = new Livro(outroAutor);
+		Livro outroLivro = new LivroFisico(outroAutor);
 		outroLivro.setNome("Depois de uma noite em Claro");
 		outroLivro.setDescricao("A história de um homem que não conseguia dormir");
 		outroLivro.setValor(59.90);

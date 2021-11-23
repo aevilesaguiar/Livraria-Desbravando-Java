@@ -1,6 +1,8 @@
-package livraria;
+package br.com.casadocodigo.livraria.produtos;
 
-public class Ebook extends Livro {
+import br.com.casadocodigo.livraria.Autor;
+
+public class Ebook extends Livro implements Promocional {
 
 
 	private String warterMark;
@@ -21,7 +23,7 @@ public class Ebook extends Livro {
 		this.warterMark = warterMark;
 	}
 	
-	
+	//Regra de desconto
 @Override
 	public boolean  aplicaDescontoDe(double porcentagem) {
 		
@@ -30,7 +32,7 @@ public class Ebook extends Livro {
 		
 		}
 	
-		return super.aplicaDescontoDe(porcentagem);
+		return true;
 	}
 
 }

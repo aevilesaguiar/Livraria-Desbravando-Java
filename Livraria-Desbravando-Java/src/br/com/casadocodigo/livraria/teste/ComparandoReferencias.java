@@ -1,4 +1,6 @@
-package livraria;
+package br.com.casadocodigo.livraria.teste;
+
+import br.com.casadocodigo.livraria.Autor;
 
 public class ComparandoReferencias {
 
@@ -21,8 +23,8 @@ public class ComparandoReferencias {
 		}
 		
 
-		Livro livro= new Livro();
-		livro.setAutor(autor);
+	//	Livro livro= new Livro();
+		//livro.setAutor(autor);
 		
 	//	livro.autor.nome="Joao da Silva";
 		
